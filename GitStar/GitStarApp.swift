@@ -13,6 +13,7 @@ struct GitStarApp: App {
         WindowGroup {
             NavigationView {
                 SearchView()
+                    .background(Color.backgroundColor)
             }
         }
     }

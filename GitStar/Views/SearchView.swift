@@ -15,8 +15,12 @@ struct SearchView: View {
         VStack {
             Text("Hello Git Star")
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationTitle("GitStar ⭐️")
         .searchable(text: $searchText)
+        .onSubmit(of: .search) {
+            print("search")
+        }
     }
 }
 

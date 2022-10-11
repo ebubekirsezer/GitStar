@@ -11,6 +11,7 @@
 		CF250D9328F588C7000DCAB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF250D9228F588C7000DCAB1 /* Assets.xcassets */; };
 		CF250D9628F588C7000DCAB1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF250D9528F588C7000DCAB1 /* Preview Assets.xcassets */; };
 		CF250D9E28F58EB1000DCAB1 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF250D9D28F58EB1000DCAB1 /* SearchView.swift */; };
+		CF250DA128F59074000DCAB1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF250DA028F59074000DCAB1 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		CF250D9228F588C7000DCAB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF250D9528F588C7000DCAB1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CF250D9D28F58EB1000DCAB1 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		CF250DA028F59074000DCAB1 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		CF250D8D28F588C6000DCAB1 /* GitStar */ = {
 			isa = PBXGroup;
 			children = (
+				CF250D9F28F59069000DCAB1 /* Extensions */,
 				CF250D9C28F58EA4000DCAB1 /* Views */,
 				CF250D8E28F588C6000DCAB1 /* GitStarApp.swift */,
 				CF250D9228F588C7000DCAB1 /* Assets.xcassets */,
@@ -73,6 +76,14 @@
 				CF250D9D28F58EB1000DCAB1 /* SearchView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CF250D9F28F59069000DCAB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CF250DA028F59074000DCAB1 /* ColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF250DA128F59074000DCAB1 /* ColorExtension.swift in Sources */,
 				CF250D9E28F58EB1000DCAB1 /* SearchView.swift in Sources */,
 				CF250D8F28F588C6000DCAB1 /* GitStarApp.swift in Sources */,
 			);
@@ -283,6 +295,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,6 +325,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
