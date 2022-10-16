@@ -1,0 +1,20 @@
+query Query($name: String!, $first: Int) {
+  topic(name: $name) {
+	name
+	repositories(first: $first) {
+	  totalCount
+	  nodes {
+		name
+		description
+		projectsUrl
+		url
+		owner {
+		  avatarUrl
+		  login
+		  url
+		  resourcePath
+		}
+	  }
+	}
+  }
+}

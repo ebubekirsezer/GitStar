@@ -11,6 +11,7 @@
 		CF250D9128F588C6000DCAB1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF250D9028F588C6000DCAB1 /* ContentView.swift */; };
 		CF250D9328F588C7000DCAB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF250D9228F588C7000DCAB1 /* Assets.xcassets */; };
 		CF250D9628F588C7000DCAB1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF250D9528F588C7000DCAB1 /* Preview Assets.xcassets */; };
+		CF2E62DD28FAE43E003648D4 /* Topic.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CF2E62DC28FAE43E003648D4 /* Topic.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		CF250D9028F588C6000DCAB1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CF250D9228F588C7000DCAB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF250D9528F588C7000DCAB1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CF2E62DC28FAE43E003648D4 /* Topic.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Topic.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +39,7 @@
 			children = (
 				CF250D8D28F588C6000DCAB1 /* GitStar */,
 				CF250D8C28F588C6000DCAB1 /* Products */,
+				CF95806028F89A2F008F26E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +54,7 @@
 		CF250D8D28F588C6000DCAB1 /* GitStar */ = {
 			isa = PBXGroup;
 			children = (
+				CF2E62D928FAE418003648D4 /* GraphQL */,
 				CF250D8E28F588C6000DCAB1 /* GitStarApp.swift */,
 				CF250D9028F588C6000DCAB1 /* ContentView.swift */,
 				CF250D9228F588C7000DCAB1 /* Assets.xcassets */,
@@ -65,6 +69,21 @@
 				CF250D9528F588C7000DCAB1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CF2E62D928FAE418003648D4 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				CF2E62DC28FAE43E003648D4 /* Topic.graphql */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		CF95806028F89A2F008F26E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +102,8 @@
 			dependencies = (
 			);
 			name = GitStar;
+			packageProductDependencies = (
+			);
 			productName = GitStar;
 			productReference = CF250D8B28F588C6000DCAB1 /* GitStar.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +132,8 @@
 				Base,
 			);
 			mainGroup = CF250D8228F588C6000DCAB1;
+			packageReferences = (
+			);
 			productRefGroup = CF250D8C28F588C6000DCAB1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF250D9628F588C7000DCAB1 /* Preview Assets.xcassets in Resources */,
+				CF2E62DD28FAE43E003648D4 /* Topic.graphql in Resources */,
 				CF250D9328F588C7000DCAB1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +293,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"GitStar/Preview Content\"";
 				DEVELOPMENT_TEAM = 7FX9FX9T59;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -298,6 +323,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"GitStar/Preview Content\"";
 				DEVELOPMENT_TEAM = 7FX9FX9T59;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
