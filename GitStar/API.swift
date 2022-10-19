@@ -4,11 +4,11 @@
 import Apollo
 import Foundation
 
-public final class QueryQuery: GraphQLQuery {
+public final class TopicQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Query($name: String!, $first: Int) {
+    query Topic($name: String!, $first: Int) {
       topic(name: $name) {
         __typename
         name
@@ -34,7 +34,7 @@ public final class QueryQuery: GraphQLQuery {
     }
     """
 
-  public let operationName: String = "Query"
+  public let operationName: String = "Topic"
 
   public var name: String
   public var first: Int?

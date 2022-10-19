@@ -15,6 +15,12 @@
 		CFA25E3B290089360019986B /* Topic.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFA25E3A290089360019986B /* Topic.graphql */; };
 		CFA25E3D29008A390019986B /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = CFA25E3C29008A390019986B /* schema.json */; };
 		CFA25E3F29008A400019986B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA25E3E29008A400019986B /* API.swift */; };
+		CFF408A82900908F00B0F6A9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF408A72900908F00B0F6A9 /* NetworkManager.swift */; };
+		CFF408AB2900928E00B0F6A9 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF408AA2900928E00B0F6A9 /* NetworkManagerProtocol.swift */; };
+		CFF408AD2900955A00B0F6A9 /* NetworkInterceptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF408AC2900955A00B0F6A9 /* NetworkInterceptorProvider.swift */; };
+		CFF408AF2900957A00B0F6A9 /* TokenInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF408AE2900957A00B0F6A9 /* TokenInterceptor.swift */; };
+		CFF408B12900962800B0F6A9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF408B02900962800B0F6A9 /* Constants.swift */; };
+		CFF408B429009B7700B0F6A9 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF408B329009B7700B0F6A9 /* Topic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		CFA25E3A290089360019986B /* Topic.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Topic.graphql; sourceTree = "<group>"; };
 		CFA25E3C29008A390019986B /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		CFA25E3E29008A400019986B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CFF408A72900908F00B0F6A9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CFF408AA2900928E00B0F6A9 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
+		CFF408AC2900955A00B0F6A9 /* NetworkInterceptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptorProvider.swift; sourceTree = "<group>"; };
+		CFF408AE2900957A00B0F6A9 /* TokenInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInterceptor.swift; sourceTree = "<group>"; };
+		CFF408B02900962800B0F6A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CFF408B329009B7700B0F6A9 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +73,11 @@
 			children = (
 				CFA25E3C29008A390019986B /* schema.json */,
 				CFA25E3E29008A400019986B /* API.swift */,
+				CFF408B229009AC100B0F6A9 /* Models */,
+				CFF408A92900927900B0F6A9 /* Network */,
 				CFA25E392900890D0019986B /* GraphQL */,
 				CF250D8E28F588C6000DCAB1 /* GitStarApp.swift */,
+				CFF408B02900962800B0F6A9 /* Constants.swift */,
 				CF250D9028F588C6000DCAB1 /* ContentView.swift */,
 				CF250D9228F588C7000DCAB1 /* Assets.xcassets */,
 				CF250D9428F588C7000DCAB1 /* Preview Content */,
@@ -84,6 +99,25 @@
 				CFA25E3A290089360019986B /* Topic.graphql */,
 			);
 			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		CFF408A92900927900B0F6A9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CFF408AA2900928E00B0F6A9 /* NetworkManagerProtocol.swift */,
+				CFF408A72900908F00B0F6A9 /* NetworkManager.swift */,
+				CFF408AC2900955A00B0F6A9 /* NetworkInterceptorProvider.swift */,
+				CFF408AE2900957A00B0F6A9 /* TokenInterceptor.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		CFF408B229009AC100B0F6A9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CFF408B329009B7700B0F6A9 /* Topic.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +197,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		CFA25E4029008BC40019986B /* Apollo */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -177,7 +211,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --header=\"Authorization: Bearer YOUR_TOKEN\" --endpoint=\"https://api.github.com/graphql\" schema.json\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --header=\"Authorization: bearer YOUR_TOKEN\" --endpoint=\"https://api.github.com/graphql\" schema.json\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -186,9 +220,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF408AD2900955A00B0F6A9 /* NetworkInterceptorProvider.swift in Sources */,
+				CFF408B429009B7700B0F6A9 /* Topic.swift in Sources */,
+				CFF408A82900908F00B0F6A9 /* NetworkManager.swift in Sources */,
 				CF250D9128F588C6000DCAB1 /* ContentView.swift in Sources */,
 				CFA25E3F29008A400019986B /* API.swift in Sources */,
+				CFF408AB2900928E00B0F6A9 /* NetworkManagerProtocol.swift in Sources */,
+				CFF408AF2900957A00B0F6A9 /* TokenInterceptor.swift in Sources */,
 				CF250D8F28F588C6000DCAB1 /* GitStarApp.swift in Sources */,
+				CFF408B12900962800B0F6A9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
