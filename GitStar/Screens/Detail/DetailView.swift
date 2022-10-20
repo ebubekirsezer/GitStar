@@ -86,7 +86,7 @@ struct DetailView: View {
                         Button {
                             
                         } label: {
-                            Label("Star", systemImage: "star")
+                            Label("Save", systemImage: "heart")
                                 .font(.body)
                                 .foregroundColor(.primary)
                         }

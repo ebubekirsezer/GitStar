@@ -12,8 +12,7 @@ struct GitStarApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                SearchView()
-                    .background(Color.backgroundColor)
+                AppTabView()
             }
             .accentColor(.primary)
         }

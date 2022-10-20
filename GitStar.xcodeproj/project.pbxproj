@@ -19,6 +19,9 @@
 		CF876B132901E5FF0094110F /* GSAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF876B122901E5FF0094110F /* GSAlertModifier.swift */; };
 		CF876B152901E6670094110F /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF876B142901E6670094110F /* AlertView.swift */; };
 		CF876B182901EB3F0094110F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF876B172901EB3F0094110F /* DetailView.swift */; };
+		CF876B1B2901FC860094110F /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF876B1A2901FC860094110F /* AppTabView.swift */; };
+		CF876B1E2901FCA40094110F /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF876B1D2901FCA40094110F /* FavoritesView.swift */; };
+		CF876B20290201390094110F /* FavoritesRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF876B1F290201390094110F /* FavoritesRowItem.swift */; };
 		CFA25E34290088210019986B /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = CFA25E33290088210019986B /* Apollo */; };
 		CFA25E3B290089360019986B /* Topic.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CFA25E3A290089360019986B /* Topic.graphql */; };
 		CFA25E3D29008A390019986B /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = CFA25E3C29008A390019986B /* schema.json */; };
@@ -49,6 +52,9 @@
 		CF876B122901E5FF0094110F /* GSAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSAlertModifier.swift; sourceTree = "<group>"; };
 		CF876B142901E6670094110F /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		CF876B172901EB3F0094110F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		CF876B1A2901FC860094110F /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		CF876B1D2901FCA40094110F /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		CF876B1F290201390094110F /* FavoritesRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRowItem.swift; sourceTree = "<group>"; };
 		CFA25E3A290089360019986B /* Topic.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Topic.graphql; sourceTree = "<group>"; };
 		CFA25E3C29008A390019986B /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		CFA25E3E29008A400019986B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -147,6 +153,22 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		CF876B192901FC7E0094110F /* AppTabView */ = {
+			isa = PBXGroup;
+			children = (
+				CF876B1A2901FC860094110F /* AppTabView.swift */,
+			);
+			path = AppTabView;
+			sourceTree = "<group>";
+		};
+		CF876B1C2901FC950094110F /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				CF876B1D2901FCA40094110F /* FavoritesView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		CFA25E392900890D0019986B /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,8 +210,10 @@
 		CFF408B82900A47700B0F6A9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CF876B192901FC7E0094110F /* AppTabView */,
 				CF5356FC2901802F0021E109 /* Search */,
 				CF876B162901EA500094110F /* Detail */,
+				CF876B1C2901FC950094110F /* Favorites */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -200,6 +224,7 @@
 				CFFA28A129016E3B002C796D /* AvatarImageView.swift */,
 				CFFA28A32901730A002C796D /* RepositoryRowItem.swift */,
 				CF876B142901E6670094110F /* AlertView.swift */,
+				CF876B1F290201390094110F /* FavoritesRowItem.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -314,6 +339,8 @@
 				CF250D9128F588C6000DCAB1 /* ContentView.swift in Sources */,
 				CFFA28A42901730A002C796D /* RepositoryRowItem.swift in Sources */,
 				CFA25E3F29008A400019986B /* API.swift in Sources */,
+				CF876B1B2901FC860094110F /* AppTabView.swift in Sources */,
+				CF876B1E2901FCA40094110F /* FavoritesView.swift in Sources */,
 				CF876B182901EB3F0094110F /* DetailView.swift in Sources */,
 				CFF408AB2900928E00B0F6A9 /* NetworkManagerProtocol.swift in Sources */,
 				CFF408AF2900957A00B0F6A9 /* TokenInterceptor.swift in Sources */,
@@ -321,6 +348,7 @@
 				CF250D8F28F588C6000DCAB1 /* GitStarApp.swift in Sources */,
 				CF876B0C2901D76E0094110F /* Node.swift in Sources */,
 				CFF408B12900962800B0F6A9 /* Constants.swift in Sources */,
+				CF876B20290201390094110F /* FavoritesRowItem.swift in Sources */,
 				CFFA28A229016E3B002C796D /* AvatarImageView.swift in Sources */,
 				CF876B0E2901D7950094110F /* Owner.swift in Sources */,
 				CFF408B72900A46100B0F6A9 /* ColorExtension.swift in Sources */,
