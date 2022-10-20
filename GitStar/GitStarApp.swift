@@ -11,7 +11,10 @@ import SwiftUI
 struct GitStarApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                SearchView()
+                    .background(Color.backgroundColor)
+            }
         }
     }
 }

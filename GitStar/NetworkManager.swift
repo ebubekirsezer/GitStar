@@ -40,10 +40,8 @@ final class NetworkManager: NetworkManagerProtocol {
                 if let dictionary = apolloResponse.data?.jsonObject[operationName.lowercased()] {
                     if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted) {
                         do {
-                            print(dictionary)
-                            // We will use this later
-                            // guard let jsonResults = try? JSONDecoder().decode(responseModel, from: jsonData) else { return }
-                            // completion(.success(jsonResults))
+                             guard let jsonResults = try? JSONDecoder().decode(responseModel, from: jsonData) else { return }
+                             completion(.success(jsonResults))
                         }
                     }
                 }
@@ -64,10 +62,8 @@ final class NetworkManager: NetworkManagerProtocol {
                 if let dictionary = apolloResponse.data?.jsonObject[operationName.lowercased()] {
                     if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted) {
                         do {
-                            print(dictionary)
-                            // We will use this later
-                            // let jsonResults = try JSONDecoder().decode(responseModel, from: jsonData)
-                            // completion(.success(jsonResults))
+                             let jsonResults = try JSONDecoder().decode(responseModel, from: jsonData)
+                             completion(.success(jsonResults))
                         } catch {
                             print("Parse:\(error)")
                         }
