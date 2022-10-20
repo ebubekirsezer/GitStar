@@ -27,6 +27,8 @@ public final class TopicQuery: GraphQLQuery {
               login
               url
             }
+            forkCount
+            stargazerCount
           }
           totalCount
         }
@@ -189,6 +191,8 @@ public final class TopicQuery: GraphQLQuery {
               GraphQLField("projectsUrl", type: .nonNull(.scalar(String.self))),
               GraphQLField("url", type: .nonNull(.scalar(String.self))),
               GraphQLField("owner", type: .nonNull(.object(Owner.selections))),
+              GraphQLField("forkCount", type: .nonNull(.scalar(Int.self))),
+              GraphQLField("stargazerCount", type: .nonNull(.scalar(Int.self))),
             ]
           }
 
@@ -198,8 +202,8 @@ public final class TopicQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(id: GraphQLID, name: String, description: String? = nil, projectsUrl: String, url: String, owner: Owner) {
-            self.init(unsafeResultMap: ["__typename": "Repository", "id": id, "name": name, "description": description, "projectsUrl": projectsUrl, "url": url, "owner": owner.resultMap])
+          public init(id: GraphQLID, name: String, description: String? = nil, projectsUrl: String, url: String, owner: Owner, forkCount: Int, stargazerCount: Int) {
+            self.init(unsafeResultMap: ["__typename": "Repository", "id": id, "name": name, "description": description, "projectsUrl": projectsUrl, "url": url, "owner": owner.resultMap, "forkCount": forkCount, "stargazerCount": stargazerCount])
           }
 
           public var __typename: String {
@@ -267,6 +271,26 @@ public final class TopicQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue.resultMap, forKey: "owner")
+            }
+          }
+
+          /// Returns how many forks there are of this repository in the whole network.
+          public var forkCount: Int {
+            get {
+              return resultMap["forkCount"]! as! Int
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "forkCount")
+            }
+          }
+
+          /// Returns a count of how many stargazers there are on this object
+          public var stargazerCount: Int {
+            get {
+              return resultMap["stargazerCount"]! as! Int
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "stargazerCount")
             }
           }
 
