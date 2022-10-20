@@ -15,6 +15,7 @@ struct GitStarApp: App {
                 SearchView()
                     .background(Color.backgroundColor)
             }
+            .accentColor(.primary)
         }
     }
 }

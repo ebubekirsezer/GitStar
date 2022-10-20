@@ -16,10 +16,29 @@ struct SearchView: View {
     var body: some View {
         
         ZStack {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(viewModel.topic?.repositories?.nodes ?? [], id: \.id) { repository in
-                        RepositoryRowItem(node: repository)
+            if viewModel.topic == nil {
+                VStack(spacing: 16) {
+                    Image(systemName: "arrow.up")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
+                    
+                    Text("Lets start searching 🔎")
+                }
+                .frame(maxHeight: .infinity, alignment: .center)
+            } else if viewModel.topic?.repositories?.totalCount == 0 {
+                Text("Nothing found 🫤")
+                    .frame(maxHeight: .infinity, alignment: .center)
+            } else {
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(viewModel.topic?.repositories?.nodes ?? [], id: \.id) { repository in
+                            
+                            NavigationLink(destination: DetailView(node: repository)) {
+                                RepositoryRowItem(node: repository)
+                            }
+                            .foregroundColor(.primary)
+                        }
                     }
                 }
             }
