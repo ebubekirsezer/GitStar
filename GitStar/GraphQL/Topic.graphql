@@ -1,5 +1,5 @@
 
-query Query($name: String!, $first: Int) {
+query Topic($name: String!, $first: Int) {
   topic(name: $name) {
 	name
 	repositories(first: $first) {
@@ -14,6 +14,8 @@ query Query($name: String!, $first: Int) {
 		  login
 		  url
 		}
+		forkCount
+		stargazerCount
 	  }
 	  totalCount
 	}
