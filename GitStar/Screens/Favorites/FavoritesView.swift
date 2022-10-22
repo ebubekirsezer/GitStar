@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct FavoritesView: View {
+    
+    @ObservedResults(Node.self) var nodes
+    
     var body: some View {
         ScrollView {
-            ForEach(createDummyTopic().repositories?.nodes ?? [], id: \.id) { node in
+            ForEach(nodes.arrayValue(), id: \.id) { node in
                 FavoritesRowItem(node: node)
             }
         }

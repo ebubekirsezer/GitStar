@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     
+    @ObservedObject var viewModel: DetaiViewModel = .init()
     var node: Node
     
     var body: some View {
@@ -84,9 +85,10 @@ struct DetailView: View {
                     
                     HStack(spacing: 8) {
                         Button {
-                            
+                            viewModel.addOrRemove(node: node)
                         } label: {
-                            Label("Save", systemImage: "heart")
+                            Label(viewModel.isAdded ? "Remove" : "Save",
+                                  systemImage: viewModel.isAdded ? "trash.fill" : "heart")
                                 .font(.body)
                                 .foregroundColor(.primary)
                         }
@@ -123,6 +125,9 @@ struct DetailView: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.backgroundColor)
+        .onAppear {
+            viewModel.control(node: node)
+        }
     }
 }
 

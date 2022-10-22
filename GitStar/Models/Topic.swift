@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Topic: Codable {
+class Topic: BaseModel, Codable {
 
-    var name: String?
-    var repositories: Repository?
+    @Persisted var name: String?
+    @Persisted var repositories: Repository?
+
 
     enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -23,6 +25,7 @@ class Topic: Codable {
         name = try? container.decode(String.self, forKey: .name)
         repositories = try? container.decode(Repository.self, forKey: .repositories)
     }
+
 }
 
 func createDummyTopic() -> Topic {
@@ -44,9 +47,12 @@ func createDummyTopic() -> Topic {
     node.id = "1"
     node.owner = owner
     
+    let nodes = List<Node>()
+    nodes.append(node)
+    
     let repository = Repository()
     repository.totalCount = 1
-    repository.nodes = [node]
+    repository.nodes = nodes
     
     topic.repositories = repository
     return topic

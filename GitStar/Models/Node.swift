@@ -6,19 +6,20 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Node: Codable {
-    
-    var descriptionField: String?
-    var forkCount: Int?
-    var id: String?
-    var name: String?
-    var owner: Owner?
-    var projectsUrl: String?
-    var stargazerCount: Int?
-    var url: String?
-    
-    
+class Node: BaseModel, Codable {
+
+    @Persisted var descriptionField: String?
+    @Persisted var forkCount: Int?
+    @Persisted var id: String?
+    @Persisted var name: String?
+    @Persisted var owner: Owner?
+    @Persisted var projectsUrl: String?
+    @Persisted var stargazerCount: Int?
+    @Persisted var url: String?
+
+
     enum CodingKeys: String, CodingKey {
         case descriptionField = "description"
         case forkCount = "forkCount"
@@ -29,7 +30,7 @@ class Node: Codable {
         case stargazerCount = "stargazerCount"
         case url = "url"
     }
-    
+
     required convenience init(from decoder: Decoder) throws {
         self.init()
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -42,5 +43,5 @@ class Node: Codable {
         stargazerCount = try? container.decode(Int.self, forKey: .stargazerCount)
         url = try? container.decode(String.self, forKey: .url)
     }
-    
+
 }

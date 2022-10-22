@@ -32,7 +32,7 @@ struct SearchView: View {
             } else {
                 ScrollView {
                     LazyVGrid(columns: columns) {
-                        ForEach(viewModel.topic?.repositories?.nodes ?? [], id: \.id) { repository in
+                        ForEach(viewModel.topic?.repositories?.nodes.arrayValue() ?? [], id: \.id) { repository in
                             
                             NavigationLink(destination: DetailView(node: repository)) {
                                 RepositoryRowItem(node: repository)

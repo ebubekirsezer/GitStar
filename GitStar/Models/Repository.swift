@@ -5,12 +5,14 @@
 //  Created by EbubekirSezer on 20.10.2022.
 //
 
+
 import Foundation
+import RealmSwift
 
-class Repository: Codable {
+class Repository: BaseModel, Codable {
 
-    var nodes: [Node] = []
-    var totalCount: Int?
+    @Persisted var nodes: List<Node> = List<Node>()
+    @Persisted var totalCount: Int?
 
 
     enum CodingKeys: String, CodingKey {
@@ -21,9 +23,10 @@ class Repository: Codable {
     required convenience init(from decoder: Decoder) throws {
         self.init()
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         let nodesArray = try? container.decode([Node].self, forKey: .nodes)
-        nodes = nodesArray ?? []
+        nodes.append(objectsIn: nodesArray ?? [])
         totalCount = try? container.decode(Int.self, forKey: .totalCount)
     }
+
 }
