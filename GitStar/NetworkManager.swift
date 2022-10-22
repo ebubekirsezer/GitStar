@@ -37,13 +37,22 @@ final class NetworkManager: NetworkManagerProtocol {
             
             switch result {
             case .success(let apolloResponse):
-                if let dictionary = apolloResponse.data?.jsonObject[operationName.lowercased()] {
-                    if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted) {
+                if let dictionary = apolloResponse.data?.resultMap[operationName.lowercased()],
+                   let dict = dictionary {
+                    if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) {
                         do {
-                             guard let jsonResults = try? JSONDecoder().decode(responseModel, from: jsonData) else { return }
+                             guard let jsonResults = try? JSONDecoder().decode(responseModel, from: jsonData) else {
+                                 completion(.failure(NSError()))
+                                return
+                                 
+                             }
                              completion(.success(jsonResults))
                         }
+                    } else {
+                        completion(.failure(NSError()))
                     }
+                } else {
+                    completion(.failure(NSError()))
                 }
                 
             case .failure(let error):
