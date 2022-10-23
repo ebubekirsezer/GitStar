@@ -11,6 +11,7 @@
 		CF250D9128F588C6000DCAB1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF250D9028F588C6000DCAB1 /* ContentView.swift */; };
 		CF250D9328F588C7000DCAB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF250D9228F588C7000DCAB1 /* Assets.xcassets */; };
 		CF250D9628F588C7000DCAB1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF250D9528F588C7000DCAB1 /* Preview Assets.xcassets */; };
+		CF3F74DE29052E31005496C6 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F74DD29052E31005496C6 /* SplashView.swift */; };
 		CF5356FE290180410021E109 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5356FD290180410021E109 /* SearchViewModel.swift */; };
 		CF876B0A2901D73D0094110F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF876B092901D73D0094110F /* Repository.swift */; };
 		CF876B0C2901D76E0094110F /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF876B0B2901D76E0094110F /* Node.swift */; };
@@ -45,6 +46,7 @@
 		CF250D9028F588C6000DCAB1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CF250D9228F588C7000DCAB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF250D9528F588C7000DCAB1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CF3F74DD29052E31005496C6 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		CF5356FD290180410021E109 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		CF876B092901D73D0094110F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		CF876B0B2901D76E0094110F /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 				CF250D9528F588C7000DCAB1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CF3F74DC29052E20005496C6 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				CF3F74DD29052E31005496C6 /* SplashView.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		CF5356FC2901802F0021E109 /* Search */ = {
@@ -213,6 +223,7 @@
 		CFF408B82900A47700B0F6A9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CF3F74DC29052E20005496C6 /* Splash */,
 				CF876B192901FC7E0094110F /* AppTabView */,
 				CF5356FC2901802F0021E109 /* Search */,
 				CF876B162901EA500094110F /* Detail */,
@@ -323,7 +334,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --header=\"Authorization: bearer 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\" --endpoint=\"https://api.github.com/graphql\" schema.json\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Don't run this during index builds\nif [ $ACTION = \"indexbuild\" ]; then exit 0; fi\n\n# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --header=\"Authorization: bearer YOUR_TOKEN\" --endpoint=\"https://api.github.com/graphql\" schema.json\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -339,6 +350,7 @@
 				CF876B0A2901D73D0094110F /* Repository.swift in Sources */,
 				CF876B152901E6670094110F /* AlertView.swift in Sources */,
 				CFF408A82900908F00B0F6A9 /* NetworkManager.swift in Sources */,
+				CF3F74DE29052E31005496C6 /* SplashView.swift in Sources */,
 				CF250D9128F588C6000DCAB1 /* ContentView.swift in Sources */,
 				CFFA28A42901730A002C796D /* RepositoryRowItem.swift in Sources */,
 				CFA25E3F29008A400019986B /* API.swift in Sources */,

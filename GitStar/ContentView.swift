@@ -9,14 +9,28 @@ import SwiftUI
 import Apollo
 
 struct ContentView: View {
+    
+    @State var isSplashShowed: Bool = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .onAppear(perform: {
-                NetworkManager.shared.queryGraphQLRequest(query: TopicQuery(name: "swiftui", first: 25), responseModel: Topic.self) { result in
-
+        Group {
+            if isSplashShowed {
+                NavigationView {
+                    AppTabView()
                 }
-            })
-            .padding()
+                .accentColor(.primary)
+            } else {
+                SplashView()
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                withAnimation {
+                    self.isSplashShowed = true
+                }
+            }
+        }
+        
     }
 }
 

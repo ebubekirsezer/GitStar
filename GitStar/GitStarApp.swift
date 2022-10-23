@@ -11,10 +11,7 @@ import SwiftUI
 struct GitStarApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                AppTabView()
-            }
-            .accentColor(.primary)
+            ContentView()
         }
     }
 }

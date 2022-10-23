@@ -11,7 +11,9 @@ struct FavoritesView: View {
     var body: some View {
         ScrollView {
             ForEach(createDummyTopic().repositories?.nodes ?? [], id: \.id) { node in
-                FavoritesRowItem(node: node)
+                Link(destination: URL(string: node.url ?? "")!) {
+                    FavoritesRowItem(node: node)
+                }
             }
         }
         .background(Color.clear)
