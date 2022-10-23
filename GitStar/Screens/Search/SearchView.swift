@@ -32,10 +32,13 @@ struct SearchView: View {
             } else {
                 ScrollView {
                     LazyVGrid(columns: columns) {
-                        ForEach(viewModel.topic?.repositories?.nodes ?? [], id: \.id) { repository in
+                        ForEach(viewModel.nodes, id: \.id) { node in
                             
-                            NavigationLink(destination: DetailView(node: repository)) {
-                                RepositoryRowItem(node: repository)
+                            NavigationLink(destination: DetailView(node: node)) {
+                                RepositoryRowItem(node: node)
+                                    .onAppear {
+                                        viewModel.loadContent(with: node)
+                                    }
                             }
                             .foregroundColor(.primary)
                         }

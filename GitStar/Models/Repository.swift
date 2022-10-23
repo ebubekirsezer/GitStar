@@ -10,11 +10,13 @@ import Foundation
 class Repository: Codable {
 
     var nodes: [Node] = []
+    var pageInfo: PageInfo?
     var totalCount: Int?
 
 
     enum CodingKeys: String, CodingKey {
         case nodes = "nodes"
+        case pageInfo
         case totalCount = "totalCount"
     }
 
@@ -24,6 +26,7 @@ class Repository: Codable {
         
         let nodesArray = try? container.decode([Node].self, forKey: .nodes)
         nodes = nodesArray ?? []
+        pageInfo = try? container.decode(PageInfo.self, forKey: .pageInfo)
         totalCount = try? container.decode(Int.self, forKey: .totalCount)
     }
 }
