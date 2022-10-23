@@ -11,6 +11,7 @@
 		CF250D9128F588C6000DCAB1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF250D9028F588C6000DCAB1 /* ContentView.swift */; };
 		CF250D9328F588C7000DCAB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF250D9228F588C7000DCAB1 /* Assets.xcassets */; };
 		CF250D9628F588C7000DCAB1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF250D9528F588C7000DCAB1 /* Preview Assets.xcassets */; };
+		CF3F74DB290527F1005496C6 /* PageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3F74DA290527F1005496C6 /* PageInfo.swift */; };
 		CF5356FE290180410021E109 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5356FD290180410021E109 /* SearchViewModel.swift */; };
 		CF876B0A2901D73D0094110F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF876B092901D73D0094110F /* Repository.swift */; };
 		CF876B0C2901D76E0094110F /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF876B0B2901D76E0094110F /* Node.swift */; };
@@ -55,6 +56,7 @@
 		CF250D9028F588C6000DCAB1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CF250D9228F588C7000DCAB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF250D9528F588C7000DCAB1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CF3F74DA290527F1005496C6 /* PageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageInfo.swift; sourceTree = "<group>"; };
 		CF5356FD290180410021E109 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		CF876B092901D73D0094110F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		CF876B0B2901D76E0094110F /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				CFF408B329009B7700B0F6A9 /* Topic.swift */,
 				CF876B092901D73D0094110F /* Repository.swift */,
 				CF876B0B2901D76E0094110F /* Node.swift */,
+				CF3F74DA290527F1005496C6 /* PageInfo.swift */,
 				CF876B0D2901D7950094110F /* Owner.swift */,
 			);
 			path = Models;
@@ -379,6 +382,7 @@
 				CF876B2E29020CFC0094110F /* RealmManager.swift in Sources */,
 				CF876B272902085F0094110F /* CollectionExtension.swift in Sources */,
 				CFDEBD7E2903E6B70019B1B4 /* RealmHelper.swift in Sources */,
+				CF3F74DB290527F1005496C6 /* PageInfo.swift in Sources */,
 				CF876B3029020D8A0094110F /* RealmFileType.swift in Sources */,
 				CF876B0A2901D73D0094110F /* Repository.swift in Sources */,
 				CF876B152901E6670094110F /* AlertView.swift in Sources */,

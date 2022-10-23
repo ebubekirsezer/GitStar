@@ -15,7 +15,9 @@ struct FavoritesView: View {
     var body: some View {
         ScrollView {
             ForEach(nodes.arrayValue(), id: \.id) { node in
-                FavoritesRowItem(node: node)
+                Link(destination: URL(string: node.url ?? "")!) {
+                    FavoritesRowItem(node: node)
+                }
             }
         }
         .background(Color.clear)

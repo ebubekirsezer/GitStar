@@ -12,11 +12,13 @@ import RealmSwift
 class Repository: BaseModel, Codable {
 
     @Persisted var nodes: List<Node> = List<Node>()
+    @Persisted var pageInfo: PageInfo?
     @Persisted var totalCount: Int?
 
 
     enum CodingKeys: String, CodingKey {
         case nodes = "nodes"
+        case pageInfo
         case totalCount = "totalCount"
     }
 
@@ -26,6 +28,7 @@ class Repository: BaseModel, Codable {
 
         let nodesArray = try? container.decode([Node].self, forKey: .nodes)
         nodes.append(objectsIn: nodesArray ?? [])
+        pageInfo = try? container.decode(PageInfo.self, forKey: .pageInfo)
         totalCount = try? container.decode(Int.self, forKey: .totalCount)
     }
 

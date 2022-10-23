@@ -8,11 +8,11 @@ public final class TopicQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Topic($name: String!, $first: Int) {
+    query Topic($name: String!, $first: Int, $after: String) {
       topic(name: $name) {
         __typename
         name
-        repositories(first: $first) {
+        repositories(first: $first, after: $after) {
           __typename
           nodes {
             __typename
@@ -31,6 +31,11 @@ public final class TopicQuery: GraphQLQuery {
             stargazerCount
           }
           totalCount
+          pageInfo {
+            __typename
+            hasNextPage
+            endCursor
+          }
         }
       }
     }
@@ -40,14 +45,16 @@ public final class TopicQuery: GraphQLQuery {
 
   public var name: String
   public var first: Int?
+  public var after: String?
 
-  public init(name: String, first: Int? = nil) {
+  public init(name: String, first: Int? = nil, after: String? = nil) {
     self.name = name
     self.first = first
+    self.after = after
   }
 
   public var variables: GraphQLMap? {
-    return ["name": name, "first": first]
+    return ["name": name, "first": first, "after": after]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -86,7 +93,7 @@ public final class TopicQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("repositories", arguments: ["first": GraphQLVariable("first")], type: .nonNull(.object(Repository.selections))),
+          GraphQLField("repositories", arguments: ["first": GraphQLVariable("first"), "after": GraphQLVariable("after")], type: .nonNull(.object(Repository.selections))),
         ]
       }
 
@@ -137,6 +144,7 @@ public final class TopicQuery: GraphQLQuery {
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("nodes", type: .list(.object(Node.selections))),
             GraphQLField("totalCount", type: .nonNull(.scalar(Int.self))),
+            GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
           ]
         }
 
@@ -146,8 +154,8 @@ public final class TopicQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(nodes: [Node?]? = nil, totalCount: Int) {
-          self.init(unsafeResultMap: ["__typename": "RepositoryConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "totalCount": totalCount])
+        public init(nodes: [Node?]? = nil, totalCount: Int, pageInfo: PageInfo) {
+          self.init(unsafeResultMap: ["__typename": "RepositoryConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }, "totalCount": totalCount, "pageInfo": pageInfo.resultMap])
         }
 
         public var __typename: String {
@@ -176,6 +184,16 @@ public final class TopicQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "totalCount")
+          }
+        }
+
+        /// Information to aid in pagination.
+        public var pageInfo: PageInfo {
+          get {
+            return PageInfo(unsafeResultMap: resultMap["pageInfo"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "pageInfo")
           }
         }
 
@@ -357,6 +375,57 @@ public final class TopicQuery: GraphQLQuery {
               set {
                 resultMap.updateValue(newValue, forKey: "url")
               }
+            }
+          }
+        }
+
+        public struct PageInfo: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["PageInfo"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+              GraphQLField("endCursor", type: .scalar(String.self)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(hasNextPage: Bool, endCursor: String? = nil) {
+            self.init(unsafeResultMap: ["__typename": "PageInfo", "hasNextPage": hasNextPage, "endCursor": endCursor])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// When paginating forwards, are there more items?
+          public var hasNextPage: Bool {
+            get {
+              return resultMap["hasNextPage"]! as! Bool
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "hasNextPage")
+            }
+          }
+
+          /// When paginating forwards, the cursor to continue.
+          public var endCursor: String? {
+            get {
+              return resultMap["endCursor"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "endCursor")
             }
           }
         }
