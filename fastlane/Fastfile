@@ -37,7 +37,5 @@ platform :ios do
   )
     build_app(workspace: WORKSPACE_PATH, scheme: TARGET_SCHEME, configuration: CONFIG_APPSTORE)
     upload_to_testflight
-    notify_build(target: TARGET_SCHEME, config: CONFIG_APPSTORE)
-
   end
 end
